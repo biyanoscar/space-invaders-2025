@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #0a0a2e, #000000);
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.game-container {
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+canvas {
+    border: 3px solid #00ff9d;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0, 255, 157, 0.4);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.score-display {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #00ff9d;
+    font-size: 28px;
+    text-shadow: 0 0 15px rgba(0, 255, 157, 0.7);
+    letter-spacing: 2px;
+}
+
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 30px 50px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.4);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.05); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+#gameOver h2 {
+    font-size: 3.5em;
+    margin: 0 0 25px 0;
+    color: #ff0000;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+#gameOver button {
+    background: #00ff9d;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    color: #000;
+}
+
+.game-over button:hover {
+    background: #00cc7a;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.6);
+}
+
+/* Add starfield background animation */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--duration) ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
